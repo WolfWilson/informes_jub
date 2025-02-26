@@ -67,6 +67,6 @@ El ejecutable se generará en la carpeta `dist/`.
 Este proyecto está licenciado bajo la **Licencia MIT**.
 
 ## 📧 Contacto
-Si tienes preguntas o sugerencias, puedes contactarme en: [Tu Email o GitHub].
+Si tienes preguntas o sugerencias, puedes contactarme en: [wolfwilson].
 
 🚀 **¡Gracias por usar el Generador de Informes!**

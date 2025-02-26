@@ -212,7 +212,6 @@ class InformeApp(QWidget):
                 for j, cell in enumerate(row):
                     self.informe_table.setItem(i, j, QTableWidgetItem(str(cell)))
 
-            self.informe_table.setSortingEna
             self.informe_table.setSortingEnabled(True)  # Habilitar ordenación después de cargar los datos
             # Rehabilitar la ordenación después de cargar los datos
 
