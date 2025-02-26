@@ -17,7 +17,8 @@ Este es un software de escritorio desarrollado en **Python** utilizando **PyQt6*
 - Soporte para múltiples tipos de gráficos y filtros
 
 ## 📸 Capturas de Pantalla
-![Interfaz](https://via.placeholder.com/800x400?text=Captura+de+Pantalla)
+![Interfaz][![imagen-2025-02-26-112808019.png](https://i.postimg.cc/FK3VbV3m/imagen-2025-02-26-112808019.png)](https://postimg.cc/cK130YF5)
+[![imagen-2025-02-26-112858053.png](https://i.postimg.cc/mDS3JZm5/imagen-2025-02-26-112858053.png)](https://postimg.cc/VrdbbwQq)
 
 ## 📂 Instalación y Uso
 ### 🔧 1. Clonar el Repositorio
@@ -41,6 +42,7 @@ El software permite generar informes en base a tres criterios principales:
 1. **Informe de Altas**: Datos sobre nuevas incorporaciones.
 2. **Informe por Categoría**: Análisis basado en categorías predefinidas.
 3. **Novedades de Beneficios**: Cambios recientes en el sistema de beneficios.
+3. **Informes por Operadores**: Egresos de cada operador (actividad completado con actuaciones-expedientes)
 
 ## 📈 Tipos de Gráficos Disponibles
 ✔️ Gráfico de Expedientes
