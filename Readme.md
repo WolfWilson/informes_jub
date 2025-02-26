@@ -17,8 +17,10 @@ Este es un software de escritorio desarrollado en **Python** utilizando **PyQt6*
 - Soporte para múltiples tipos de gráficos y filtros
 
 ## 📸 Capturas de Pantalla
+
 ![Interfaz][![imagen-2025-02-26-112808019.png](https://i.postimg.cc/FK3VbV3m/imagen-2025-02-26-112808019.png)](https://postimg.cc/cK130YF5)
-[![imagen-2025-02-26-112858053.png](https://i.postimg.cc/mDS3JZm5/imagen-2025-02-26-112858053.png)](https://postimg.cc/VrdbbwQq)
+
+![Interfaz][![imagen-2025-02-26-112858053.png](https://i.postimg.cc/mDS3JZm5/imagen-2025-02-26-112858053.png)](https://postimg.cc/VrdbbwQq)
 
 ## 📂 Instalación y Uso
 ### 🔧 1. Clonar el Repositorio
