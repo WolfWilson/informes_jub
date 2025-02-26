@@ -289,7 +289,7 @@ class InformeApp(QWidget):
         except Exception as e:
             QApplication.restoreOverrideCursor()
             self.show_message_box("Error", f"Error al generar el informe: {str(e)}")
-    
+ # :::::::::::::: GUARDA EN EXCEL EL INFORME REALIZADO :::::::::::::::::::::::::   
     def guardar_en_excel(self):
         """
         Guarda el informe actual en un archivo Excel,
@@ -324,9 +324,7 @@ class InformeApp(QWidget):
         except Exception as e:
             self.show_message_box("Error", f"Error al guardar el informe: {str(e)}")
 
-    
-
-
+# ::::::::::::::::::::::: FUNCIÓN DEL MODULO QUE CREA LOS GRAFICOS Y LOS DIBUJA EN LA INTERZAR PRINCIPAL :::::::::::::::::::::
     def mostrar_graficos(self):
         """
         Muestra gráficos según el tipo de informe y gráfico seleccionados,
@@ -453,3 +451,27 @@ if __name__ == '__main__':
     ex = InformeApp()
     ex.show()
     sys.exit(app.exec())
+
+
+#pyinstaller --onefile --windowed --icon=wolf.ico --add-data "Source/wolf.png;Source" --add-data "Source/generar.png;Source" --add-data "Source/toexcel2.png;Source" --add-data "Source/graphics.png;Source" --add-data "Source/save.png;Source" --add-data "Modules/styles.py;Modules" --add-data "Modules/database_utils.py;Modules" --distpath "C:/My Software Folder" informesv4.py  
+
+#pyinstaller --onefile --windowed --icon=wolf.ico --add-data "Source/wolf.png;Source" --add-data "Source/generar.png;Source" --add-data "Source/toexcel2.png;Source" --add-data "Source/graphics.png;Source" --add-data "Source/save.png;Source" --add-data "Modules/styles.py;Modules" --add-data "Modules/database_utils.py;Modules" --add-data "Modules/graficos.py;Modules" --distpath "C:/My Software Folder" informes_v4.py
+"""
+pyinstaller --clean --onefile --windowed --icon=wolf.ico `
+--add-data "Source/wolf.png;Source" `
+--add-data "Source/generar.png;Source" `
+--add-data "Source/toexcel2.png;Source" `
+--add-data "Source/graphics.png;Source" `
+--add-data "Source/save.png;Source" `
+--add-data "Modules/styles.py;Modules" `
+--add-data "Modules/database_utils.py;Modules" `
+--add-data "Modules/graficos.py;Modules" `
+--hidden-import pandas `
+--hidden-import pandas._libs `
+--collect-submodules pandas `
+--collect-data pandas `
+--exclude pandas.tests `
+--distpath "C:/My Software Folder" informes_v4.py
+
+
+"""

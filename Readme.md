@@ -63,9 +63,24 @@ El usuario puede exportar:
 ## 🔧 Construcción del Ejecutable
 Si deseas generar un ejecutable independiente:
 ```bash
-pyinstaller --onefile --windowed --icon=wolf.ico --add-data "Source/wolf.png;Source" informesv4.py
+
+pyinstaller --clean --onefile --windowed --icon=wolf.ico `
+--add-data "Source/wolf.png;Source" `
+--add-data "Source/generar.png;Source" `
+--add-data "Source/toexcel2.png;Source" `
+--add-data "Source/graphics.png;Source" `
+--add-data "Source/save.png;Source" `
+--add-data "Modules/styles.py;Modules" `
+--add-data "Modules/database_utils.py;Modules" `
+--add-data "Modules/graficos.py;Modules" `
+--hidden-import pandas `
+--hidden-import pandas._libs `
+--collect-submodules pandas `
+--collect-data pandas `
+--exclude pandas.tests `
+--distpath "C:/My Software Folder" informes_v4.py
 ```
-El ejecutable se generará en la carpeta `dist/`.
+El ejecutable se generará en la carpeta `C:/My Software Folder`.
 
 ## 📜 Licencia
 Este proyecto está licenciado bajo la **Licencia MIT**.
