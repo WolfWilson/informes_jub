@@ -61,7 +61,7 @@ class InformeApp(QWidget):
             "Informe de Altas", 
             "Informe por Categoria", 
             "Novedades de Beneficios",
-            "Informe de Operadores"  # <-- NUEVO
+            "Inf. de actuaciones gestionadas por Operador"  # <-- NUEVO
         ])
         self.informe_selector.setStyleSheet("font-size: 12px; font-weight: bold; padding: 2px; color:#0A2A35;")
         self.informe_selector.currentIndexChanged.connect(self.update_grafico_options)
@@ -253,7 +253,7 @@ class InformeApp(QWidget):
                 procedure_name = "Will_novedades_altasv1"
                 self.df = fetch_data_from_database(fecha_inicio, fecha_fin, procedure_name)
 
-            elif informe_tipo == "Informe de Operadores":
+            elif informe_tipo == "Inf. de actuaciones gestionadas por Operador":
                 # Tomamos el código y la letra seleccionada
                 codigo_operador = self.operator_combo.currentData()
                 letra = self.letra_combo.currentData()
@@ -383,7 +383,7 @@ class InformeApp(QWidget):
         self.combo_tipo_grafico.clear()
 
         # Si es "Informe de Operadores", mostramos combos y agregamos una opción de gráfico (si quisieras)
-        if informe_tipo == "Informe de Operadores":
+        if informe_tipo == "Inf. de actuaciones gestionadas por Operador":
             self.operator_label.show()
             self.operator_combo.show()
             self.letra_label.show()
