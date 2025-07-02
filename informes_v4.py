@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import (
     QDateEdit, QMessageBox, QTabWidget, QTableWidget, QTableWidgetItem,
     QFileDialog, QComboBox, QCheckBox
 )
-from PyQt6.QtGui import QIcon, QCursor
+from PyQt6.QtGui import QIcon, QCursor, QColor
 from PyQt6.QtCore import QDate, Qt, QTimer
 from PyQt6 import QtCore
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
@@ -251,12 +251,38 @@ class InformeApp(QWidget):
         self.informe_table.setColumnCount(len(self.df.columns))
         self.informe_table.setHorizontalHeaderLabels(self.df.columns)
 
+        # for row_idx, (_, row) in enumerate(self.df.iterrows()):
+        #     for col_idx, value in enumerate(row):
+        #         self.informe_table.setItem(row_idx, col_idx, QTableWidgetItem(str(value)))
+    
+        # ------------------------------------------------------------------
+        # Rellenar tabla + colorear filas según MesesAnticipo
+        # ------------------------------------------------------------------
         for row_idx, (_, row) in enumerate(self.df.iterrows()):
+            # Intentamos leer la columna MesesAnticipo de forma segura
+            meses_val_raw = row.get("MesesAnticipo", None)
+            try:
+                meses_val = int(meses_val_raw) if pd.notna(meses_val_raw) else 0
+            except (ValueError, TypeError):
+                meses_val = 0
+
+            # Elegir color de fondo
+            bg_color = None
+            if meses_val == 5:
+                bg_color = QColor("#FFF59D")   # amarillo suave
+            elif meses_val in (6, 7):
+                bg_color = QColor("#FFCC80")   # naranja suave
+
+            # Crear items y aplicarlos a la fila
             for col_idx, value in enumerate(row):
-                self.informe_table.setItem(row_idx, col_idx, QTableWidgetItem(str(value)))
+                item = QTableWidgetItem(str(value))
+                if bg_color is not None:
+                    item.setBackground(bg_color)
+                self.informe_table.setItem(row_idx, col_idx, item)
 
         self.informe_table.setSortingEnabled(True)
         self.total_registros_label.setText(f"Total de registros: {len(self.df)}")
+
 
     # ------------------------------ Excel ----------------------------------
     def guardar_en_excel(self):
