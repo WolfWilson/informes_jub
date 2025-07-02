@@ -14,7 +14,7 @@ from Modules.database_utils import (
     fetch_data_operadores,
     fetch_operators_list
 )
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from matplotlib.ticker import MaxNLocator
 import matplotlib.pyplot as plt
@@ -24,13 +24,13 @@ from matplotlib.patches import FancyBboxPatch
 
 from Modules.graficos import generar_graficos #importa los graficos desde  Modules
 
-def get_resource_path(file_name, folder='Source'):
+def get_resource_path(file_name, folder='Source'): 
     """
     Obtiene la ruta de los archivos (íconos, imágenes) en el directorio de recursos.
     """
-    if hasattr(sys, '_MEIPASS'):
+    if hasattr(sys, '_MEIPASS'): 
         # Cuando está ejecutándose en un ejecutable compilado con PyInstaller
-        return os.path.join(sys._MEIPASS, folder, file_name)
+        return os.path.join(sys._MEIPASS, folder, file_name) # type: ignore[attr-defined]
     else:
         # Cuando se ejecuta en modo de desarrollo
         return os.path.join(os.path.dirname(os.path.abspath(__file__)), folder, file_name)
@@ -277,9 +277,10 @@ class InformeApp(QWidget):
             self.informe_table.setColumnCount(len(self.df.columns))
             self.informe_table.setHorizontalHeaderLabels(self.df.columns)
             
-            for i, row in self.df.iterrows():
-                for j, cell in enumerate(row):
-                    self.informe_table.setItem(i, j, QTableWidgetItem(str(cell)))
+            for row_idx, (_, row) in enumerate(self.df.iterrows()):
+                for col_idx, value in enumerate(row):
+                    item = QTableWidgetItem(str(value))
+                    self.informe_table.setItem(row_idx, col_idx, item)
 
             self.informe_table.setSortingEnabled(True)
 
